@@ -1,0 +1,15 @@
+---
+# tasks file for package-list.install
+- name: uninstall list of packages RedHat
+  yum:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ package_list_yum }}"
+  when: ansible_os_family == "RedHat"
+
+- name: uninstall list of packages Debian
+  apt:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ package_list_apt }}"
+  when: ansible_os_family == "Debian"

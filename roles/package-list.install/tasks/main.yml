@@ -1,0 +1,15 @@
+---
+# tasks file for package-list.install
+- name: install list of packages RedHat
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ package_list_yum }}"
+  when: ansible_os_family == "RedHat"
+
+- name: install list of packages Debian
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ package_list_apt }}"
+  when: ansible_os_family == "Debian"

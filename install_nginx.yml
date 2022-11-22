@@ -1,0 +1,11 @@
+---
+- name: Install nginx
+  hosts: all
+  become: yes
+  vars_files:
+    - vars/auth_vault.yml
+  vars:
+    - nginx_install_state: installed
+  
+  roles:
+    - nginx.install

@@ -1,0 +1,10 @@
+---
+- name: Check connection to servers
+  hosts: all
+  become: yes
+
+  vars_files:
+    - vars/auth_vault.yml
+  
+  tasks:
+    - ping:

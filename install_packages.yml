@@ -1,0 +1,23 @@
+---
+- name: install packages
+  hosts: all
+  become: yes
+  vars_files:
+    - vars/auth_vault.yml
+
+  vars:
+    - package_list_yum: 
+      - vi
+      - nano
+      - htop
+      - mc
+      - tree
+    - package_list_apt:
+      - vim
+      - nano
+      - htop
+      - mc
+      - tree
+
+  roles:
+    - package-list.install

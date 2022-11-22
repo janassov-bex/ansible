@@ -1,0 +1,8 @@
+list_users:
+  - login: user1
+    pass: user1_pass
+  - login: user2
+    pass: user2_pass
+  - login: user3
+    pass: user3_pass
+

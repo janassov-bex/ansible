@@ -1,0 +1,9 @@
+---
+# tasks file for users.create
+- name: create users from group_vars
+  ansible.builtin.user:
+    name: "{{ item.login }}"
+    state: present
+    groups: "sudo"
+    password: "{{ item.pass | password_hash('sha512') }}"
+  loop: "{{ list_users }}"

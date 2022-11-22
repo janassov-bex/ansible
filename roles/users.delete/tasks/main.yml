@@ -1,0 +1,7 @@
+---
+# tasks file for users.delete
+- name: delete users from group_vars
+  ansible.builtin.user:
+    name: "{{ item.login }}"
+    state: absent
+  loop: "{{ list_users }}"
